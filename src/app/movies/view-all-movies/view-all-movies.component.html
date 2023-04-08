@@ -1,0 +1,71 @@
+<div mt-5>
+    <h5 class="text-center">CHOOSE YOUR MOVIES</h5>
+</div>
+
+<div id="carouselExampleSlidesOnly" class="carousel slide  mt-5 border border-4 border-dark" data-bs-ride="carousel">
+    <div class="carousel-inner" data-interval="2000">
+      <div class="carousel-item active"  s>
+        <img style="height: 400px;" src="https://i.postimg.cc/gJs3fC8r/godzilla-vs-kong-ver19-xlg.jpg" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item" style="height: 400px;">
+        <img style="height: 300px;" style="height: 500px;" src="https://i.postimg.cc/jCVYK7Qg/avengers-endgame-ver3-xlg.jpg" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item" style="height: 400px;">
+        <img style="height: 300px;"  style="height: 500px;" src="https://i.postimg.cc/rwjyGf9q/mortal-kombat-ver3-xlg.jpg" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item" style="height: 400px;">
+        <img style="height: 300px;"  style="height: 500px;" src="https://i.postimg.cc/wMxd0mcn/aquaman-movie-poster-6g.jpg" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item" style="height: 400px;">
+        <img style="height: 320px;"  style="height: 500px;" src="https://i.postimg.cc/nLDX460N/queen-ver5-xlg.jpg" class="d-block w-100" alt="...">
+      </div>
+    </div>
+  </div>
+<div class="container" >
+    <div class="container row text-center  ms-3">
+        <div class="row  gx-lg-5 row-cols-sm-2 row-cols-md-4 row-cols-xl-4 justify-content-center">
+                <div  class="p-4 col-6">
+                    <a (click)="filter('')">
+                        <img id="box" style="height: 48px;" class="w-75 " src="https://i.postimg.cc/3RrZ7KSM/Picsart-23-03-26-10-02-26-326.png" alt="">
+                    </a>
+            </div>
+            <div class="p-4 col-6">
+                <a (click)="filter(1)">
+                    <img  style="height: 30px; " class="w-75 mt-2" src="https://i.postimg.cc/ZKvxJscq/Picsart-23-03-26-10-02-07-962.png" alt="">
+                </a>
+            </div>
+            <div class="p-4 col-6">
+                <a (click)="filter(2)">
+                    <img  style="height: 30px;" class="w-75 mt-2" src="https://i.postimg.cc/rmY5k5RW/Picsart-23-03-26-10-01-57-621.png" alt="">
+                </a>
+            </div>
+            <div class="p-4 col-6">
+                <a (click)="filter(3)">
+                    <img  style="height: 30px;" class="w-75 mt-2"  src="https://i.postimg.cc/nry7sZkh/Picsart-23-03-26-10-01-45-165.png" alt="">
+                </a>
+            </div>
+        </div>
+        
+    </div>
+    <form class="d-flex me-5 me-auto ms-3 " role="search">
+        <input [(ngModel)]="searchTerm" (keyup)="search($event)"  class="form-control me-3 " type="search" placeholder="Search Movies"  aria-label="Search" >
+        <button class="btn btn-outline-warning" type="submit">Search</button>
+    </form>
+    <section class="py-4">
+        <div class="container px-4 px-lg-4 mt-5 mb-4">
+            <div class="row gx-4 gx-lg-6 row-cols-2 row-cols-md-4 row-cols-xl-6 justify-content-center">
+                <div *ngFor="let i of filterMovies | filter:searchkey:'Title' " class="col mb-5">
+                    <a href="movies/view_movies/{{i.id}}">
+                        <div id="d1" class="card h-100 border border-secondary border-3" >
+                        
+                       <img style="height: 240px; " class="" src="{{i.Poster}}" alt="..." />
+
+                    </div>
+                </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+</div>
